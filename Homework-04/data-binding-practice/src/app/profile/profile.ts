@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -7,21 +8,24 @@ import { Component } from '@angular/core';
   styleUrl: './profile.scss',
 })
 export class Profile {
-  name: string = 'Jingyi';
-  email: string = '';
-  dateOfBirth: string = '';
   count: number = 0;
 
+  profileForm = new FormGroup({
+    'name': new FormControl('Jingyi', Validators.required),
+    'email': new FormControl('', Validators.required),
+    'dateOfBirth': new FormControl('', Validators.required)
+  })
+
   reset() {
-    this.name = '';
-    this.email = '';
-    this.dateOfBirth = '';
+    this.profileForm.reset();
   }
 
   save() {
-    console.log("name: ", this.name);
-    console.log("email: ", this.email);
-    console.log("dateofBirth: ", this.dateOfBirth);
     this.count++;
+    console.log("profileForm: ", this.profileForm.value);
+    console.log("name: ", this.profileForm.get('name')?.value);
+    console.log("email: ", this.profileForm.get('email')?.value);
+    console.log("dateOfBirth: ", this.profileForm.get('dateOfBirth')?.value);
+    console.log("valid: ", this.profileForm);
   }
 }

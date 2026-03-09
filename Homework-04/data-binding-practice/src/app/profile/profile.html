@@ -1,20 +1,24 @@
-<h1>Welcome,  {{ name }}!</h1>
+<h1>Welcome,  {{ profileForm.get('name')?.value }}!</h1>
 
-<label>Name: </label>
-<input [(ngModel)] = "name" />
+<form [formGroup] = "profileForm">
+    <label>Name: </label>
+    <input formControlName = "name" />
 
-<br>
+    <br>
 
-<label>Email: </label>
-<input [(ngModel)] = "email"/>
+    <label>Email: </label>
+    <input formControlName = "email"/>
 
-<br>
+    <br>
 
-<label>Date of Birth: </label>
-<input [(ngModel)] = "dateOfBirth"/>
+    <label>Date of Birth: </label>
+    <input formControlName = "dateOfBirth"/>
 
-<br>
+    <br>
 
-<button (click)="reset()" [disabled]="!name && !email && !dateOfBirth">Reset</button>
-<button (click)="save()" [disabled]="!name && !email && !dateOfBirth">Save {{ count }} times</button>
+    <button (click)="reset()" [disabled]="!profileForm.valid">Reset</button>
+    <button (click)="save()" [disabled]="!profileForm.valid">Save {{ count }} times</button>
+</form>
+
+
 
