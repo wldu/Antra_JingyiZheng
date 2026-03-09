@@ -1,0 +1,20 @@
+<h1>Welcome,  {{ name }}!</h1>
+
+<label>Name: </label>
+<input [(ngModel)] = "name" />
+
+<br>
+
+<label>Email: </label>
+<input [(ngModel)] = "email"/>
+
+<br>
+
+<label>Date of Birth: </label>
+<input [(ngModel)] = "dateOfBirth"/>
+
+<br>
+
+<button (click)="reset()" [disabled]="!name && !email && !dateOfBirth">Reset</button>
+<button (click)="save()" [disabled]="!name && !email && !dateOfBirth">Save {{ count }} times</button>
+
