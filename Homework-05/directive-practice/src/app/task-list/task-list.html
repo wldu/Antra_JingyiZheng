@@ -1,0 +1,30 @@
+<div *ngIf="tasks.length === 0">No task avaible</div>
+<div *ngIf="tasks.length > 0">
+  <div *ngFor="let task of tasks" [ngClass]="{ overdue: task.dueDate < today }">
+    <p>{{ task.title }}</p>
+    <p appDisplayOverflow>{{ task.description }}</p>
+    <select [(ngModel)]="task.status">
+      <option *ngFor="let status of statusList" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<hr />
+
+<label>Task Name:</label>
+<input [(ngModel)]="newTaskTitle" />
+
+<label>Description:</label>
+<input [(ngModel)]="newTaskDescription" />
+
+<label>DueDate:</label>
+<input [(ngModel)]="newDueDate" type="date" />
+
+<label>Priority:</label>
+<select [(ngModel)]="newPriority">
+  <option *ngFor="let priority of priorityList" [value]="priority">{{ priority }}</option>
+</select>
+
+<button (click)="addTask()">Add task</button>
