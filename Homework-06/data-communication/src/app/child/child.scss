@@ -1,0 +1,14 @@
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  align-self: end;
+  width: 90px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  border-radius: 4px;
+}

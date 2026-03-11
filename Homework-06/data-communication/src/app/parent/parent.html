@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="left-part">
+    <h1>List</h1>
+    <div
+      *ngFor="let item of data"
+      class="item-normal"
+      [ngStyle]="{
+        'border-left':
+          item.id === dataToChild?.id ? '8px solid ' + item.color : '4px solid ' + item.color,
+        background: item.id === dataToChild?.id ? 'grey' : 'white',
+      }"
+      (click)="clickItem(item)"
+    >
+      <h3 [ngClass]="changeColorId === item.id ? 'active' : 'default'">{{ item.name }}</h3>
+      <p>{{ item.description | truncate }}</p>
+    </div>
+  </div>
+  <div class="right-part">
+    <app-child
+      [dataFromParent]="dataToChild"
+      (triggerParentEvent)="changeTitleColor($event)"
+    ></app-child>
+  </div>
+</div>

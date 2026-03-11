@@ -1,0 +1,5 @@
+<div *ngIf="dataFromParent" class="container">
+  <h2>{{ dataFromParent?.name }}</h2>
+  <p>{{ dataFromParent?.description }}</p>
+  <button class="button" (click)="changeParentColor()">Save</button>
+</div>
