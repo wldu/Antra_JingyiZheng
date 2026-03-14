@@ -1,0 +1,71 @@
+<form [formGroup]="registerForm" class="form">
+  <div>
+    <label>Username: </label>
+    <input formControlName="username" />
+    <p *ngIf="username?.touched && username?.hasError('required')" class="alert">
+      Username is required.
+    </p>
+    <p *ngIf="username?.touched && username?.hasError('minlength')" class="alert">
+      Username must be at least 3 characters long.
+    </p>
+  </div>
+
+  <div>
+    <label>Email: </label>
+    <input formControlName="email" />
+    <!-- <p>{{ registerForm?.hasError('emailRequired') }}</p> -->
+    <p *ngIf="email?.touched && registerForm?.hasError('emailRequired')" class="alert">
+      Email is required.
+    </p>
+    <p *ngIf="email?.touched && email?.hasError('email')" class="alert">
+      Email must be in a valid email format.
+    </p>
+  </div>
+  <div>
+    <label>Password: </label>
+    <input type="password" formControlName="password" />
+    <p *ngIf="password?.touched && password?.hasError('required')" class="alert">
+      Password is required.
+    </p>
+    <p *ngIf="password?.touched && password?.hasError('minlength')" class="alert">
+      Password must be at least 6 characters long.
+    </p>
+  </div>
+  <div>
+    <label>Confirm password: </label>
+    <input type="password" formControlName="confirmPsw" />
+    <p *ngIf="confirmPsw?.touched && confirmPsw?.hasError('required')" class="alert">
+      Confirm password is required.
+    </p>
+    <p
+      *ngIf="
+        confirmPsw?.touched &&
+        !confirmPsw?.hasError('required') &&
+        registerForm?.hasError('notMatch')
+      "
+      class="alert"
+    >
+      Password and Confirm Password fileds must much.
+    </p>
+    <!-- <p>{{ registerForm?.hasError('notMatch') }}</p> -->
+  </div>
+  <div>
+    <label>Phone number: </label>
+    <input formControlName="phoneNum" />
+    <p *ngIf="phoneNum?.touched && registerForm?.hasError('phoneRequired')" class="alert">
+      Phone number is required.
+    </p>
+  </div>
+  <div>
+    <label>Preferred Contact Method: </label>
+    <select formControlName="preferredMethod">
+      <option [value]="'email'">Email</option>
+      <option [value]="'phone'">Phone</option>
+    </select>
+    <p *ngIf="preferredMethod?.touched && preferredMethod?.hasError('required')" class="alert">
+      Please provide at least one contact method.
+    </p>
+  </div>
+</form>
+<!-- <p>{{ registerForm?.valid }}</p> -->
+<button [disabled]="!registerForm?.valid" (click)="submit()">Submit</button>
