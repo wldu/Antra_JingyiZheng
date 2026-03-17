@@ -1,0 +1,9 @@
+.userItem {
+  border: 1px solid grey;
+  border-bottom: none;
+  padding: 10px;
+}
+
+.userItem:last-child {
+  border-bottom: 1px solid grey;
+}

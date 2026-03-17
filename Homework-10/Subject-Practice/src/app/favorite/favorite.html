@@ -1,0 +1,8 @@
+<H3>Here is the favorite user list:</H3>
+
+<div *ngIf="favoriteUserList.length">
+  <div *ngFor="let user of favoriteUserList" class="userItem">
+    <p>{{ user.name }}</p>
+    <p>{{ user.email }}</p>
+  </div>
+</div>

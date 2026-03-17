@@ -1,0 +1,13 @@
+<H3>Here is the user list:</H3>
+
+<input [formControl]="searchControl" placeholder="Search by name" />
+
+<div *ngIf="userList.length">
+  <div *ngFor="let user of userList" class="userItem">
+    <p>{{ user.name }}</p>
+    <p>{{ user.email }}</p>
+
+    <button *ngIf="!user.isFavorite" (click)="addToFavorite(user)">Favorite</button>
+    <button *ngIf="user.isFavorite" (click)="removeFromFavorite(user)">Remove</button>
+  </div>
+</div>
