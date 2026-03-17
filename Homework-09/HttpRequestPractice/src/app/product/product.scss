@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.interaction {
+  flex: 2;
+}
+
+.display {
+  flex: 3;
+}
+
+.product {
+  border: 1px solid grey;
+  border-bottom: none;
+  padding: 10px;
+}
+
+.product:last-child {
+  border-bottom: 1px solid grey;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+button {
+  width: 200px;
+  margin: 12px 0 12px 0;
+}
+
+.interaction-button {
+  display: flex;
+  justify-content: end;
+}
+
+.id-input {
+  width: 25px;
+}

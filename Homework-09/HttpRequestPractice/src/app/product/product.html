@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="interaction">
+    <h1>Add a new product here</h1>
+    <div class="input-field">
+      <label>Title:</label>
+      <input [(ngModel)]="newProduct.title" />
+
+      <label>Description:</label>
+      <input [(ngModel)]="newProduct.description" />
+
+      <label>Category:</label>
+      <input [(ngModel)]="newProduct.category" />
+    </div>
+
+    <button (click)="addNewProduct()">Add</button>
+
+    <!-- <hr /> -->
+
+    <h1>
+      Update the <input type="number" class="id-input" [(ngModel)]="updatedId" />th product here
+    </h1>
+    <div class="input-field">
+      <label>Title:</label>
+      <input [(ngModel)]="updatedProduct.title" />
+
+      <label>Description:</label>
+      <input [(ngModel)]="updatedProduct.description" />
+
+      <label>Category:</label>
+      <input [(ngModel)]="updatedProduct.category" />
+    </div>
+
+    <button (click)="updateProductItem()">Update</button>
+
+    <!-- <hr /> -->
+  </div>
+
+  <div class="display">
+    <div *ngIf="isLoading">Loading...</div>
+
+    <div *ngIf="!isLoading && productList.length > 0">
+      <div *ngFor="let product of productList" class="product">
+        <p>Title: {{ product.title }}</p>
+        <p>Description: {{ product.description }}</p>
+        <p>Category: {{ product.category }}</p>
+        <div class="interaction-button">
+          <button (click)="deleteProduct(product.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
