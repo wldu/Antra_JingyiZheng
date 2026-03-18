@@ -7,8 +7,16 @@
 <button (click)="search()">Submit</button>
 
 <div *ngIf="filmList.length">
-  <div *ngFor="let film of filmList">
-    <p>name: {{ film.title }}</p>
-    <p>year: {{ film.release_date }}</p>
-  </div>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Year</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let film of filmList">
+        <td>{{ film.title }}</td>
+        <td>{{ film.release_date }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
