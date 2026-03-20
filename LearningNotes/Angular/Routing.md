@@ -117,9 +117,28 @@ From a navigation, what happen:
 
 #### Guard
 
-==// todo==
+* Route guards are **functions** to control wheter a use can navigate to or leave a particular route.
+
+* Angular CLI:  to get a `CUSTOM_NAME-guard.ts`  file 
+
+  ```
+  ng generate guard CUSTOM_NAME
+  ```
+
+*  4 types of guards
+
+  * CanActivate: whether a user can access a route
+
+  * CanActivateChild: whether a user can access child routes of a parent route. It protect all child route, including grandchildren
+
+  * CanDeactivate: whether a user can leave a route, like preventing navigation away from unsaved forms.
+
+  * CanMatch: whether a route can be matched during path matching, rejection falls through to try other matching routes instead of blocking navigation entirely;
+
+    It can also allow you to use different components for the same path.When the user visits the same url, the first one that matches the correct guard will be used.
 
 #### Resolver
 
-==// todo==
+* It is a service implemented through a function(ResolverFn type) to  allow route to fetch needed data before navigating to the next page
 
+#### Lazy loading
